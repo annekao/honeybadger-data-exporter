@@ -13,5 +13,8 @@ bundle install
 Set an environment variable called `HONEYBADGER_PRODUCTION_AUTH_TOKEN`, then run the exporter process:
 
 ```` sh
-ruby script/export.rb
+ruby script/export_notices.rb ruby PROJECT_ID ERROR_CLASS OCCURRED_AFTER OCCURRED_BEFORE
+
+# example
+ruby script/export_notices.rb ruby 123 "StandardError::*" "20230101" "20231201"
 ````

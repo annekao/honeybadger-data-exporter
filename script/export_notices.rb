@@ -4,7 +4,7 @@ require "csv"
 require 'time'
 
 DATA_DIR = File.expand_path("../../data", __FILE__)
-CSV_COLUMN_HEADERS = %w[fault_id notice_id notice_url error_class error_message notices_count notice_created_at notice_context notice_params]
+CSV_COLUMN_HEADERS = %w[fault_id notice_id notice_url error_class notice_message notices_count notice_created_at notice_context notice_params]
 
 def notice_paginator(fault_id)
   Honeybadger::Api::Notice.paginate(
@@ -24,7 +24,7 @@ def row(fault, notice)
     :notice_id => notice.id,
     :notice_url => notice.url,
     :error_class => fault.klass,
-    :error_message => fault.message,
+    :notice_message => notice.message,
     :notices_count => fault.notices_count,
     :notice_created_at => notice_created_at_local_tz,
     :notice_context => notice.request[:context],
